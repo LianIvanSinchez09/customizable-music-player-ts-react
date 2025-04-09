@@ -1,6 +1,6 @@
-import loginEndpoint from "../Spotify"
+import loginEndpoint from "../api/Spotify"
 import { useEffect, useState } from "react";
-import { getTokenFromUrl, getUserData } from "../Spotify";
+import { getTokenFromUrl, fetchUserData } from "../api/Spotify";
 import UserProfile from "../user/UserProfile";
 
 
@@ -17,7 +17,7 @@ const Login = () => {
 
     if (_token) {
       setToken(_token);
-      getUserData(_token)
+      fetchUserData(_token)
     }
 
   }, []);

@@ -7,6 +7,7 @@ const loginEndpoint = `${authEndpoint}client_id=${clientID}&redirect_uri=${redir
   "%20"
 )}&response_type=token&show_dialog=true`;
 
+//hashing token from url
 export const getTokenFromUrl = () => {
   return window.location.hash
   .substring(1)
@@ -18,7 +19,7 @@ export const getTokenFromUrl = () => {
   }, {});
 };
 
-export const getUserData = async (token: string) => {
+export const fetchUserData = async (token: string) => {
   const response = await fetch("https://api.spotify.com/v1/me", {
     headers: {
       Authorization: `Bearer ${token}`,
