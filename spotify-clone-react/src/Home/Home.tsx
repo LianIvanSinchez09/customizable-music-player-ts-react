@@ -1,9 +1,21 @@
-import Login from "../components/auth/Login"
+import { useContext } from "react"
+import Navbar from "../components/Navbar"
+import UserProfile from "../components/user/UserProfile"
+import { tokenContext } from "../components/auth/Login"
+
 
 const Home = () => {
+  
+  const token = useContext(tokenContext)  
+  
+  console.log(token);
+  
+
+
   return (
     <div>
-      <Login/>
+      <Navbar/>
+      <UserProfile token={token}/>
     </div>
   )
 }

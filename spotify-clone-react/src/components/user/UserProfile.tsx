@@ -1,6 +1,6 @@
 import { getUserData } from '../auth/userData'
 
-const UserProfile = ({ token }: { token: string }) => {
+const UserProfile = ({ token }: { token: string | null }) => {
   
   let user = getUserData( { token } );
 

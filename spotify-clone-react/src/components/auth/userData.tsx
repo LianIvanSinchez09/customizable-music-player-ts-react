@@ -2,9 +2,14 @@ import { useState, useEffect } from 'react'
 import { fetchUserData } from '../api/Spotify'
 import type { User } from '../../custom-types/Types'
  
-export const getUserData = ({ token }: { token: string }) => {
+export const getUserData = ({ token }: { token: string | null }) => {
     
-    let userProfile: User = null;
+    let userProfile: User = {
+      name: null,
+      email: null,
+      isPremium: null,
+      profilePic: null
+    };
 
     const [user, setUser] = useState<User | null>(null)
     

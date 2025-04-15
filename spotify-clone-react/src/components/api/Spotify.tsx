@@ -18,8 +18,8 @@ export const getTokenFromUrl = () => {
     return acc;
   }, {});
 };
-
-export const fetchUserData = async (token: string) => {
+//get user data from api
+export const fetchUserData = async (token: string | null) => {
   const response = await fetch("https://api.spotify.com/v1/me", {
     headers: {
       Authorization: `Bearer ${token}`,

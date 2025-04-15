@@ -1,10 +1,11 @@
+import Login from "./components/auth/Login"
 import Home from "./Home/Home"
 
 function App() {
 
   return (
     <>
-      <Home/>
+      <Login children={<Home/>}/>
     </>
   )
 }
