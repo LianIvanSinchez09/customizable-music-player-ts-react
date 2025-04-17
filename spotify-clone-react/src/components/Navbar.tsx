@@ -1,6 +1,11 @@
 import { JSX } from "react"
+import UserPreviewCard from "./user/UserPreviewCard"
+import { getUserData } from "./auth/userData"
 
-const Navbar = (): JSX.Element => {
+const Navbar = ({ token }: { token: string | null }): JSX.Element => {
+
+  const user = getUserData({ token })
+
   return (
     <ul id="navbar">
         <li><a href="../index.html">Inicio</a></li>
@@ -9,9 +14,9 @@ const Navbar = (): JSX.Element => {
         <li><a href="../pages/likes.html">Tus me gusta</a></li>
         <li><a href="../pages/perfil.html">Tu perfil</a></li>
         <li><a href="../pages/configuracion.html">Configuracion</a></li>
-        <li><a href="../pages/test.html">test</a></li>
-        {/* <a onClick={}>Limpiar biblioteca</a> */}
         <div id="biblioteca"></div>
+        <UserPreviewCard user={user}/>
+
     </ul>
   )
 }

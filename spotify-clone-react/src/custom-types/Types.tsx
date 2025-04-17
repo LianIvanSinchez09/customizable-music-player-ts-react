@@ -16,3 +16,7 @@ export type Children = {
 }
 
 export type TokenContext = string | null;
+
+export type PropsUserPreview = {
+    user: User | null
+  } 

@@ -4,7 +4,7 @@ import type { User } from '../../custom-types/Types'
  
 export const getUserData = ({ token }: { token: string | null }) => {
     
-    let userProfile: User = {
+    let userProfile: User | null = {
       name: null,
       email: null,
       isPremium: null,
@@ -28,6 +28,10 @@ export const getUserData = ({ token }: { token: string | null }) => {
     }
     getUser()
     }, [token])
+
+
+    console.log(user);
+    
 
     return user;
 }

@@ -8,15 +8,16 @@ const Home = () => {
   
   const token = useContext(tokenContext)  
   
-  console.log(token);
-  
+
 
 
   return (
-    <div>
-      <Navbar/>
-      <UserProfile token={token}/>
-    </div>
+    <>
+      <Navbar token={token}/>
+      <div className="flex justify-center items-center">
+        <UserProfile token={token}/>
+      </div>
+    </>
   )
 }
 
