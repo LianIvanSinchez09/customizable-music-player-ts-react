@@ -1,6 +1,6 @@
 import loginEndpoint from "../api/Spotify"
 import { createContext, useEffect, useState } from "react";
-import { getTokenFromUrl, fetchUserData } from "../api/Spotify";
+import { getTokenFromUrl, fetchUserData, fetchUserPlaylists } from "../api/Spotify";
 import type { Children } from "../../custom-types/Types";
 
 export const tokenContext = createContext<string | null>(null);
@@ -24,6 +24,7 @@ const Login = ( { children }: Children ) => {
   
   console.log(token);
   
+  console.log(fetchUserPlaylists(token));
   
   return (
     <tokenContext.Provider value={token}>
@@ -44,5 +45,8 @@ const Login = ( { children }: Children ) => {
     </tokenContext.Provider>
   )
 }
+
+
+
 
 export default Login
