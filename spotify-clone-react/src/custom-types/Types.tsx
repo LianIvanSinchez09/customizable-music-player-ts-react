@@ -20,3 +20,33 @@ export type TokenContext = string | null;
 export type PropsUserPreview = {
     user: User | null
   } 
+
+export type Playlist = {
+    collaborative: boolean;
+    description: string;
+    external_urls: {
+      spotify: string;
+    };
+    id: string;
+    images: Array<{
+      url: string;
+      height: number | null;
+      width: number | null;
+    }>;
+    name: string;
+    owner: {
+      display_name: string;
+      external_urls: {
+        spotify: string;
+      };
+      href: string;
+    };
+    public: boolean;
+    snapshot_id: string;
+    tracks: {
+      href: string;
+      total: number;
+    };
+    type: string;
+    uri: string;
+  };

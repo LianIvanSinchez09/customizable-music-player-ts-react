@@ -1,3 +1,5 @@
+import { Playlist } from "../../custom-types/Types"
+
 const authEndpoint = "https://accounts.spotify.com/authorize?"
 const redirectUri = "http://localhost:5175"
 const scopes = ["user-library-read", "playlist-read-private", "user-read-private", "user-read-email"]
@@ -18,6 +20,7 @@ export const getTokenFromUrl = () => {
     return acc;
   }, {});
 };
+
 //get user data from api
 export const fetchUserData = async (token: string | null) => {
   const response = await fetch("https://api.spotify.com/v1/me", {
@@ -27,26 +30,31 @@ export const fetchUserData = async (token: string | null) => {
   });
 
   const data = await response.json();
-  console.log(data);
+  // console.log(data);
   return data;
 };
 
+//get playlists from user
+export const fetchUserPlaylists = async (token: string | null): Promise<Playlist[] | null> => {
+  if (!token) {
+    console.log("Error: token not reached");
+    return null;
+  }else{
+    try {
+      const response = await fetch("https://api.spotify.com/v1/me/playlists", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-export const fetchUserPlaylists = async (token: string | null) => {
-  const response = await fetch("https://api.spotify.com/v1/me/playlists", {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-
-  const data = await response.json();
-  console.log(data.items);
-  if(data){
-    return data.items;
+      const data = await response.json();
+      return data.items as Playlist[];
+    } catch (error) {
+      console.error("Error:", error);
+      return null;
+    }
   }
 };
-
-
 
 
 

@@ -29,9 +29,5 @@ export const getUserData = ({ token }: { token: string | null }) => {
     getUser()
     }, [token])
 
-
-    console.log(user);
-    
-
     return user;
 }
