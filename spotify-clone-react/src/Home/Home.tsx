@@ -6,8 +6,11 @@ import ShowPlaylists from "../components/home/ShowPlaylists"
 
 const Home = () => {
   
-  const token = useContext(tokenContext)  
+const token = useContext(tokenContext)  
+console.log(token);
   
+  
+
   return (
     <>
       <Navbar token={token}/>

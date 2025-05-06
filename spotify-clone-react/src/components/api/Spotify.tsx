@@ -9,11 +9,9 @@ const loginEndpoint = `${authEndpoint}client_id=${clientID}&redirect_uri=${redir
   "%20"
 )}&response_type=token&show_dialog=true`;
 
-//hashing token from url
+// extrae y decodifica parámetros del fragmento de URL
 export const getTokenFromUrl = () => {
-  return window.location.hash
-  .substring(1)
-  .split("&")
+  return window.location.hash.substring(1).split("&")
   .reduce((acc: any, item) => {
     let parts = item.split("=");
     acc[parts[0]] = decodeURIComponent(parts[1]);
