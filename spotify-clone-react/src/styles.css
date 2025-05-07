@@ -210,6 +210,9 @@ label {
 
 #navbar {
   list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0;
   padding: 0;
   width: 250px;
@@ -221,7 +224,33 @@ label {
   flex-direction: column;
 }
 
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
+.glass-effect {
+    background: linear-gradient(          45deg,          transparent 0%,          rgba(255, 255, 255, 0.1)       100%);
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+    -webkit-transition: transform 0.5s ease;
+    -moz-transition: transform 0.5s ease;
+    -ms-transition: transform 0.5s ease;
+    -o-transition: transform 0.5s ease;
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+}
+
+.glass-card:hover .glass-effect {
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+}
 
 #content li{
   margin-bottom: 20px;
@@ -256,19 +285,21 @@ label {
   -o-border-radius: 10px;
 }
 
-.song-Space img:hover {
-  cursor: pointer;
+.home {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
 }
 
+.show-playlist {
+  position: relative;
+  padding: 10px;
+}
+
+
 .song-card{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 3px solid rgb(0, 0, 0);
   border-radius: 10px;
-  padding: 25px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(216, 212, 212);
   color: black;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -321,14 +352,14 @@ label {
   text-decoration: none;
 }
 
-#navbar a:hover {
+/* #navbar a:hover {
   border-radius: 7%;
   background-color: #111;
   -webkit-border-radius: 7%;
   -moz-border-radius: 7%;
   -ms-border-radius: 7%;
   -o-border-radius: 7%;
-}
+} */
 
 ul {
   list-style-type: none;

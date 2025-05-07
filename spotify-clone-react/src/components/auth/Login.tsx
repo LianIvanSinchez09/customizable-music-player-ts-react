@@ -45,35 +45,4 @@ const Login = ( { children }: Children ) => {
     </tokenContext.Provider>
   )
 }
-
-/**
- * const Login = ( { children }: Children ) => {
-  
-  let tokenBackup: string | null = localStorage.getItem("currentUserToken")
-  const [token, setToken] = useState<string | null>(null)
-
-
-  if(localStorage.getItem("currentUserToken") != ""){
-    useEffect(() => {
-      setToken(token)
-      fetchUserData(token)
-    }, [])
-  }
-  else{
-    useEffect(() => {
-      const hash = getTokenFromUrl();
-      window.location.hash = "";
-      const _token = hash.access_token;
-      
-      if (_token) {
-        localStorage.setItem("currentUserToken", _token)
-        setToken(localStorage.getItem("currentUserToken"))
-        fetchUserData(_token)
-      }
-    }, []);
-  }
- * 
- */
-
-
 export default Login

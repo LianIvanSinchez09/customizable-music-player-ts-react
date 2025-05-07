@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react"
 import { tokenContext } from "../auth/Login"
 import { fetchUserPlaylists } from "../api/Spotify"
 import { Playlist } from "../../custom-types/Types"
+import { PlaylistComponent } from "../playlist/PlaylistComponent"
+
 
 const ShowPlaylists = () => {
   const token = useContext(tokenContext);
@@ -10,6 +12,8 @@ const ShowPlaylists = () => {
   useEffect(() => {
     const loadPlaylists = async () => {
       const playlists = await fetchUserPlaylists(token);
+      console.log(playlists);
+      
       setUserPlaylists(playlists);
     };
     loadPlaylists();
@@ -18,7 +22,9 @@ const ShowPlaylists = () => {
   return (
     <div>
       {userPlaylists?.map((playlist) => (
-        <div key={playlist.id}>{playlist.name}</div>
+        <div className="grid grid-cols-2 show-playlist">
+          <PlaylistComponent {...playlist}/>
+        </div>
       ))}
     </div>
   );
