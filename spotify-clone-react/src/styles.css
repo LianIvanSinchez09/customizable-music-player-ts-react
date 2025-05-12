@@ -297,14 +297,18 @@ label {
 }
 
 
-.song-card{
+.song-card {
   border-radius: 10px;
   background-color: rgb(216, 212, 212);
   color: black;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.song-card p {
+  text-align: center;
 }
 
 .button-group-likes {
@@ -330,10 +334,6 @@ label {
 
 
 
-.song-card img{
-  width: 250px;
-  height: 250px;
-}
 
 .song-card-alt img{
   width: 250px;

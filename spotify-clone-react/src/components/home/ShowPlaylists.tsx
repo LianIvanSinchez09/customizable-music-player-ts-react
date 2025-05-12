@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { tokenContext } from "../auth/Login"
 import { fetchUserPlaylists } from "../api/Spotify"
 import { Playlist } from "../../custom-types/Types"
-import { PlaylistComponent } from "../playlist/PlaylistComponent"
+import { PlaylistCard } from "../playlist/PlaylistComponent"
 
 
 const ShowPlaylists = () => {
@@ -23,7 +23,7 @@ const ShowPlaylists = () => {
     <div>
       {userPlaylists?.map((playlist) => (
         <div className="grid grid-cols-2 show-playlist">
-          <PlaylistComponent {...playlist}/>
+          <PlaylistCard {...playlist}/>
         </div>
       ))}
     </div>
